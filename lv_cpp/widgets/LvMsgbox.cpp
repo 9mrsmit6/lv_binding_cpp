@@ -17,12 +17,12 @@ LvMsgbox::LvMsgbox(LvObj* Parent) : LvMsgbox(Parent,"Message","Text",btn_txts_de
 
 LvMsgbox::LvMsgbox(LvObj* Parent,const char * title, const char * txt, const char * btn_txts[], bool add_close_btn) : LvObj(Parent) {
 
-	if(Parent)
-		cObj.reset(lv_msgbox_create(Parent->raw(),title, txt, btn_txts, add_close_btn));
-	else
-		cObj.reset(lv_msgbox_create(lv_scr_act(),title, txt, btn_txts, add_close_btn));
-
-	setUserData(this);
+//	if(Parent)
+//		cObj.reset(lv_msgbox_create(Parent->raw(),title, txt, btn_txts, add_close_btn));
+//	else
+//		cObj.reset(lv_msgbox_create(lv_scr_act(),title, txt, btn_txts, add_close_btn));
+//
+//	setUserData(this);
 }
 
 LvMsgbox::~LvMsgbox() {

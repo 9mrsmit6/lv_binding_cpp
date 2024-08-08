@@ -28,7 +28,7 @@
 #include "LvCanvas.h" 
 #include "LvBar.h" 
 #include "LvArc.h" 
-#include "LvMeter.h" 
+//#include "LvMeter.h"
 #include "LvLabel.h" 
 #include "LvTabview.h" 
 #include "LvImg.h" 

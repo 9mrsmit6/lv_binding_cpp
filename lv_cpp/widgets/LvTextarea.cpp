@@ -30,11 +30,11 @@ LvTextarea& LvTextarea::addText(const char *txt){
 	return *this;
 }
 LvTextarea& LvTextarea::delChar(){
-	lv_textarea_del_char(cObj.get());
+	lv_textarea_delete_char(cObj.get());
 	return *this;
 }
 LvTextarea& LvTextarea::delCharForward(){
-	lv_textarea_del_char_forward(cObj.get());
+	lv_textarea_delete_char_forward(cObj.get());
 	return *this;
 }
 LvTextarea& LvTextarea::setText(const char *txt){

@@ -30,7 +30,6 @@ public:
 	LvObj& setCObj(lv_obj_t* _cObj);
 	LvObj& setUserData(void *user_data);
 	void *getUserData() const noexcept ;
-	lv_coord_t dpx(lv_coord_t n);
 	LvObj& del();
 	LvObj& clean();
 	LvObj& delDelayed(uint32_t delay_ms);
@@ -61,10 +60,10 @@ public:
 	lv_coord_t getStyleGridCellXAlign(uint32_t part) const noexcept ;
 	lv_coord_t getStyleGridCellYAlign(uint32_t part) const noexcept ;
 	lv_theme_t *getTheme() const noexcept;
-	struct _lv_event_dsc_t *addEventCb(lv_event_cb_t event_cb, lv_event_code_t filter, void *user_data);
+	lv_event_dsc_t *addEventCb(lv_event_cb_t event_cb, lv_event_code_t filter, void *user_data);
 	bool removeEventCb(lv_event_cb_t event_cb);
 	bool removeEventCbWithUserData(lv_event_cb_t event_cb, const void *user_data);
-	bool removeEventDsc(struct _lv_event_dsc_t *event_dsc);
+	bool removeEventDsc( lv_event_dsc_t *event_dsc);
 	LvObj& classInitObj();
 	LvObj& destruct();
 	bool isEditable();
@@ -163,7 +162,7 @@ public:
 	LvObj& fadeOut(uint32_t time, uint32_t delay);
 	LvObj& initDrawRectDsc(uint32_t part, lv_draw_rect_dsc_t *draw_dsc);
 	LvObj& initDrawLabelDsc(uint32_t part, lv_draw_label_dsc_t *draw_dsc);
-	LvObj& initDrawImgDsc(uint32_t part, lv_draw_img_dsc_t *draw_dsc);
+	LvObj& initDrawImgDsc(uint32_t part, lv_draw_image_dsc_t *draw_dsc);
 	LvObj& initDrawLineDsc(uint32_t part, lv_draw_line_dsc_t *draw_dsc);
 	LvObj& initDrawArcDsc(uint32_t part, lv_draw_arc_dsc_t *draw_dsc);
 	lv_coord_t calculateExtDrawSize(uint32_t part);
@@ -188,8 +187,8 @@ public:
 	LvObj& setStyleGridCellColumnSpan(lv_coord_t value, lv_style_selector_t selector);
 	LvObj& setStyleGridCellRowPos(lv_coord_t value, lv_style_selector_t selector);
 	LvObj& setStyleGridCellRowSpan(lv_coord_t value, lv_style_selector_t selector);
-	LvObj& setStyleGridCellXAlign(lv_coord_t value, lv_style_selector_t selector);
-	LvObj& setStyleGridCellYAlign(lv_coord_t value, lv_style_selector_t selector);
+	LvObj& setStyleGridCellXAlign(lv_grid_align_t value, lv_style_selector_t selector);
+	LvObj& setStyleGridCellYAlign(lv_grid_align_t value, lv_style_selector_t selector);
 
 	/* Cpp Event Management*/
 	typedef struct {

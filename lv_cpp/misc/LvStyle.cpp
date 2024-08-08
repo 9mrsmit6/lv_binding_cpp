@@ -8,7 +8,7 @@
 namespace lvglpp {
 
 LvStyle::LvStyle() {
-	cObj.reset((lv_style_t*)lv_mem_alloc(sizeof(lv_style_t)));
+	cObj.reset((lv_style_t*)lv_malloc(sizeof(lv_style_t)));
 	init();
 }
 
@@ -39,7 +39,7 @@ LvStyle& LvStyle::setPadGap(lv_coord_t value){
 	return *this;
 }
 LvStyle& LvStyle::setSize(lv_coord_t value){
-	lv_style_set_size(cObj.get(),value);
+	lv_style_set_size(cObj.get(),value, value);
 	return *this;
 }
 LvStyle& LvStyle::init(){
@@ -175,7 +175,7 @@ LvStyle& LvStyle::setAnimTime(uint32_t value){
 	return *this;
 }
 LvStyle& LvStyle::setAnimSpeed(uint32_t value){
-	lv_style_set_anim_speed(cObj.get(),value);
+//	lv_style_set_anim_speed(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setTransition(const lv_style_transition_dsc_t *value){
@@ -199,7 +199,7 @@ LvStyle& LvStyle::setBgColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setBgColorFiltered(lv_color_t value){
-	lv_style_set_bg_color_filtered(cObj.get(),value);
+//	lv_style_set_bg_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setBgOpa(lv_opa_t value){
@@ -211,7 +211,7 @@ LvStyle& LvStyle::setBgGradColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setBgGradColorFiltered(lv_color_t value){
-	lv_style_set_bg_grad_color_filtered(cObj.get(),value);
+//	lv_style_set_bg_grad_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setBgGradDir(lv_grad_dir_t value){
@@ -231,7 +231,7 @@ LvStyle& LvStyle::setBgImgSrc(const void *value){
 	return *this;
 }
 LvStyle& LvStyle::setBgImgOpa(lv_opa_t value){
-	lv_style_set_bg_img_opa(cObj.get(),value);
+//	lv_style_set_bg_img_opa(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setBgImgRecolor(lv_color_t value){
@@ -239,7 +239,7 @@ LvStyle& LvStyle::setBgImgRecolor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setBgImgRecolorFiltered(lv_color_t value){
-	lv_style_set_bg_img_recolor_filtered(cObj.get(),value);
+//	lv_style_set_bg_img_recolor_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setBgImgRecolorOpa(lv_opa_t value){
@@ -247,7 +247,7 @@ LvStyle& LvStyle::setBgImgRecolorOpa(lv_opa_t value){
 	return *this;
 }
 LvStyle& LvStyle::setBgImgTiled(bool value){
-	lv_style_set_bg_img_tiled(cObj.get(),value);
+//	lv_style_set_bg_img_tiled(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setBorderColor(lv_color_t value){
@@ -255,7 +255,7 @@ LvStyle& LvStyle::setBorderColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setBorderColorFiltered(lv_color_t value){
-	lv_style_set_border_color_filtered(cObj.get(),value);
+//	lv_style_set_border_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setBorderOpa(lv_opa_t value){
@@ -279,7 +279,7 @@ LvStyle& LvStyle::setTextColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setTextColorFiltered(lv_color_t value){
-	lv_style_set_text_color_filtered(cObj.get(),value);
+//	lv_style_set_text_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setTextOpa(lv_opa_t value){
@@ -315,7 +315,7 @@ LvStyle& LvStyle::setImgRecolor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setImgRecolorFiltered(lv_color_t value){
-	lv_style_set_img_recolor_filtered(cObj.get(),value);
+//	lv_style_set_img_recolor_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setImgRecolorOpa(lv_opa_t value){
@@ -331,7 +331,7 @@ LvStyle& LvStyle::setOutlineColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setOutlineColorFiltered(lv_color_t value){
-	lv_style_set_outline_color_filtered(cObj.get(),value);
+//	lv_style_set_outline_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setOutlineOpa(lv_opa_t value){
@@ -363,7 +363,7 @@ LvStyle& LvStyle::setShadowColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setShadowColorFiltered(lv_color_t value){
-	lv_style_set_shadow_color_filtered(cObj.get(),value);
+//	lv_style_set_shadow_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setShadowOpa(lv_opa_t value){
@@ -391,7 +391,7 @@ LvStyle& LvStyle::setLineColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setLineColorFiltered(lv_color_t value){
-	lv_style_set_line_color_filtered(cObj.get(),value);
+//	lv_style_set_line_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setLineOpa(lv_opa_t value){
@@ -411,7 +411,7 @@ LvStyle& LvStyle::setArcColor(lv_color_t value){
 	return *this;
 }
 LvStyle& LvStyle::setArcColorFiltered(lv_color_t value){
-	lv_style_set_arc_color_filtered(cObj.get(),value);
+//	lv_style_set_arc_color_filtered(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setArcOpa(lv_opa_t value){
@@ -419,7 +419,7 @@ LvStyle& LvStyle::setArcOpa(lv_opa_t value){
 	return *this;
 }
 LvStyle& LvStyle::setArcImgSrc(const void *value){
-	lv_style_set_arc_img_src(cObj.get(),value);
+//	lv_style_set_arc_img_src(cObj.get(),value);
 	return *this;
 }
 LvStyle& LvStyle::setFlexFlow(lv_flex_flow_t value){
@@ -474,11 +474,11 @@ LvStyle& LvStyle::setGridCellRowSpan(lv_coord_t value){
 	lv_style_set_grid_cell_row_span(cObj.get(),value);
 	return *this;
 }
-LvStyle& LvStyle::setGridCellXAlign(lv_coord_t value){
+LvStyle& LvStyle::setGridCellXAlign(lv_grid_align_t value){
 	lv_style_set_grid_cell_x_align(cObj.get(),value);
 	return *this;
 }
-LvStyle& LvStyle::setGridCellYAlign(lv_coord_t value){
+LvStyle& LvStyle::setGridCellYAlign(lv_grid_align_t value){
 	lv_style_set_grid_cell_y_align(cObj.get(),value);
 	return *this;
 }

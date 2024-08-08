@@ -32,7 +32,7 @@ public:
 	uint16_t getColCnt() const noexcept ;
 	lv_coord_t getColWidth(uint16_t col) const noexcept ;
 	bool hasCellCtrl(uint16_t row, uint16_t col, lv_table_cell_ctrl_t ctrl);
-	LvTable& getSelectedCell(uint16_t *row, uint16_t *col);
+	LvTable& getSelectedCell(uint32_t *row, uint32_t *col);
 };
 
 } /* namespace lvglpp */

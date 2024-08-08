@@ -14,7 +14,7 @@ namespace lvglpp {
 class LvStyle {
 private:
 	
-	LvPointer<lv_style_t, lv_mem_free> cObj;
+	LvPointer<lv_style_t, lv_free> cObj;
 public:
 	LvStyle();
 	virtual ~LvStyle();
@@ -133,8 +133,8 @@ public:
 	LvStyle& setGridCellColumnSpan(lv_coord_t value);
 	LvStyle& setGridCellRowPos(lv_coord_t value);
 	LvStyle& setGridCellRowSpan(lv_coord_t value);
-	LvStyle& setGridCellXAlign(lv_coord_t value);
-	LvStyle& setGridCellYAlign(lv_coord_t value);
+	LvStyle& setGridCellXAlign(lv_grid_align_t value);
+	LvStyle& setGridCellYAlign(lv_grid_align_t value);
 };
 
 } /* namespace lvglpp */

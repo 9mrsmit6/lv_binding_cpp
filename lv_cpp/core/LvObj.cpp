@@ -16,7 +16,7 @@ LvObj::LvObj(LvObj* Parent) {
 	if(Parent)
 		cObj.reset(lv_obj_create(Parent->raw()));
 	else
-		cObj.reset(lv_obj_create(lv_scr_act()));
+		cObj.reset(lv_obj_create(lv_screen_active()));
 }
 lv_obj_t* LvObj::raw() {
 	return cObj.get();
@@ -37,10 +37,7 @@ void *LvObj::getUserData() const noexcept {
 	return lv_obj_get_user_data(cObj.get());
 	
 }
-lv_coord_t LvObj::dpx(lv_coord_t n){
-	return lv_obj_dpx(cObj.get(),n);
-	
-}
+
 LvObj& LvObj::del(){
 	lv_obj_del(cObj.get());
 	return *this;
@@ -50,7 +47,7 @@ LvObj& LvObj::clean(){
 	return *this;
 }
 LvObj& LvObj::delDelayed(uint32_t delay_ms){
-	lv_obj_del_delayed(cObj.get(),delay_ms);
+    lv_obj_delete_delayed(cObj.get(),delay_ms);
 	return *this;
 }
 LvObj& LvObj::delAsync(){
@@ -82,7 +79,7 @@ lv_obj_t *LvObj::getChild(int32_t id) const noexcept {
 	
 }
 uint32_t LvObj::getChildCnt() const noexcept {
-	return lv_obj_get_child_cnt(cObj.get());
+	return lv_obj_get_child_count(cObj.get());
 	
 }
 uint32_t LvObj::getIndex() const noexcept {
@@ -161,7 +158,7 @@ lv_theme_t *LvObj::getTheme() const noexcept {
 	return lv_theme_get_from_obj(cObj.get());
 	
 }
-struct _lv_event_dsc_t *LvObj::addEventCb(lv_event_cb_t event_cb, lv_event_code_t filter, void *user_data){
+lv_event_dsc_t *LvObj::addEventCb(lv_event_cb_t event_cb, lv_event_code_t filter, void *user_data){
 	return lv_obj_add_event_cb(cObj.get(),event_cb,filter,user_data);
 	
 }
@@ -171,9 +168,9 @@ bool LvObj::removeEventCb(lv_event_cb_t event_cb){
 }
 bool LvObj::removeEventCbWithUserData(lv_event_cb_t event_cb, const void *user_data){
 	return lv_obj_remove_event_cb_with_user_data(cObj.get(),event_cb,user_data);
-	
+
 }
-bool LvObj::removeEventDsc(struct _lv_event_dsc_t *event_dsc){
+bool LvObj::removeEventDsc(lv_event_dsc_t *event_dsc){
 	return lv_obj_remove_event_dsc(cObj.get(),event_dsc);
 	
 }
@@ -198,7 +195,7 @@ LvObj& LvObj::addFlag(lv_obj_flag_t f){
 	return *this;
 }
 LvObj& LvObj::clearFlag(lv_obj_flag_t f){
-	lv_obj_clear_flag(cObj.get(),f);
+    lv_obj_remove_flag(cObj.get(),f);
 	return *this;
 }
 LvObj& LvObj::addState(lv_state_t state){
@@ -206,7 +203,7 @@ LvObj& LvObj::addState(lv_state_t state){
 	return *this;
 }
 LvObj& LvObj::clearState(lv_state_t state){
-	lv_obj_clear_state(cObj.get(),state);
+    lv_obj_remove_state(cObj.get(),state);
 	return *this;
 }
 bool LvObj::hasFlag(lv_obj_flag_t f){
@@ -569,8 +566,8 @@ LvObj& LvObj::initDrawLabelDsc(uint32_t part, lv_draw_label_dsc_t *draw_dsc){
 	lv_obj_init_draw_label_dsc(cObj.get(),part,draw_dsc);
 	return *this;
 }
-LvObj& LvObj::initDrawImgDsc(uint32_t part, lv_draw_img_dsc_t *draw_dsc){
-	lv_obj_init_draw_img_dsc(cObj.get(),part,draw_dsc);
+LvObj& LvObj::initDrawImgDsc(uint32_t part, lv_draw_image_dsc_t *draw_dsc){
+    lv_obj_init_draw_image_dsc(cObj.get(),part,draw_dsc);
 	return *this;
 }
 LvObj& LvObj::initDrawLineDsc(uint32_t part, lv_draw_line_dsc_t *draw_dsc){
@@ -669,12 +666,14 @@ LvObj& LvObj::setStyleGridCellRowSpan(lv_coord_t value, lv_style_selector_t sele
 	lv_obj_set_style_grid_cell_row_span(cObj.get(),value,selector);
 	return *this;
 }
-LvObj& LvObj::setStyleGridCellXAlign(lv_coord_t value, lv_style_selector_t selector){
+LvObj& LvObj::setStyleGridCellXAlign(lv_grid_align_t value, lv_style_selector_t selector){
 	lv_obj_set_style_grid_cell_x_align(cObj.get(),value,selector);
 	return *this;
 }
-LvObj& LvObj::setStyleGridCellYAlign(lv_coord_t value, lv_style_selector_t selector){
+LvObj& LvObj::setStyleGridCellYAlign(lv_grid_align_t value, lv_style_selector_t selector){
 	lv_obj_set_style_grid_cell_y_align(cObj.get(),value,selector);
+
+
 	return *this;
 }
 

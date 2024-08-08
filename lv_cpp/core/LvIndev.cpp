@@ -36,74 +36,36 @@ extern "C" {
 
 namespace lvglpp {
 
-lv_img_dsc_t idev_cursor_icon;
+//lv_img_dsc_t idev_cursor_icon;
 
-LvInput::LvInput() :
-		LvInput(NULL) {
-
-}
-
-LvInput::LvInput(lv_indev_drv_t *drv) {
-
-	lv_indev_drv_init(&indev_drv); /*Basic initialization*/
-
-	if (!drv) {
-
-#if USE_MOUSE
-		mouse_init();
-		indev_drv.read_cb = mouse_read;
-#endif
-
-#if USE_EVDEV
-		evdev_init();
-		indev_drv.read_cb = evdev_read;
-#endif
-
-#if USE_LIBINPUT
-		libinput_init();
-		indev_drv.read_cb = libinput_read;
-#endif
-
-#if USE_LINMICE
-		linmice_init();
-		indev_drv.read_cb = linmice_read;
-#endif
-
-#if USE_MOUSE | USE_EVDEV | USE_LINMICE | USE_LIBINPUT
-		indev_drv.type = LV_INDEV_TYPE_POINTER;
-#endif
-
-	} else {
-		memcpy(&indev_drv, drv, sizeof(lv_indev_drv_t));
-	}
-
-	indev.reset(lv_indev_drv_register(&indev_drv));
-
-}
+LvInput::LvInput()
+		 {}
 
 
-LvInput& LvInput::setCursor(LvImg& Img) {
-	lv_indev_set_cursor(indev.get(), Img.raw());
-	return *this;
-}
 
-LvInput& LvInput::enableCursor() {
 
-	if(!Cursor.get())
-		Cursor = Make<LvImg>();
-	Cursor->setSrc(&mouse_cursor_icon);
-	setCursor(*Cursor.get());
+//LvInput& LvInput::setCursor(LvImg& Img) {
+////	lv_indev_set_cursor(indev.get(), Img.raw());
+//	return *this;
+//}
 
-	return *this;
+//LvInput& LvInput::enableCursor() {
 
-}
+//	if(!Cursor.get())
+//		Cursor = Make<LvImg>();
+//	Cursor->setSrc(&mouse_cursor_icon);
+//	setCursor(*Cursor.get());
+
+//	return *this;
+
+//}
 
 
 
 
 
-LvInput::~LvInput() {
-
-}
+//LvInput::~LvInput() {
+//
+//}
 
 } /* namespace lvGL */

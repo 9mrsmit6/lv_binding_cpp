@@ -42,23 +42,23 @@ LvChart& LvChart::setDivLineCount(uint8_t hdiv, uint8_t vdiv){
 	return *this;
 }
 LvChart& LvChart::setZoomX(uint16_t zoom_x){
-	lv_chart_set_zoom_x(cObj.get(),zoom_x);
+//	lv_chart_set_zoom_x(cObj.get(),zoom_x);
 	return *this;
 }
 LvChart& LvChart::setZoomY(uint16_t zoom_y){
-	lv_chart_set_zoom_y(cObj.get(),zoom_y);
+//	lv_chart_set_zoom_y(cObj.get(),zoom_y);
 	return *this;
 }
 uint16_t LvChart::getZoomX() const noexcept {
-	return lv_chart_get_zoom_x(cObj.get());
-	
+//	return lv_chart_get_zoom_x(cObj.get());
+
 }
 uint16_t LvChart::getZoomY() const noexcept {
-	return lv_chart_get_zoom_y(cObj.get());
-	
+//	return lv_chart_get_zoom_y(cObj.get());
+
 }
 LvChart& LvChart::setAxisTick(lv_chart_axis_t axis, lv_coord_t major_len, lv_coord_t minor_len, lv_coord_t major_cnt, lv_coord_t minor_cnt, bool label_en, lv_coord_t draw_size){
-	lv_chart_set_axis_tick(cObj.get(),axis,major_len,minor_len,major_cnt,minor_cnt,label_en,draw_size);
+//	lv_chart_set_axis_tick(cObj.get(),axis,major_len,minor_len,major_cnt,minor_cnt,label_en,draw_size);
 	return *this;
 }
 lv_chart_type_t LvChart::getType() const noexcept {
